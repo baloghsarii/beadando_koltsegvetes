@@ -1,12 +1,12 @@
-// Adatok betöltése indításkor
+// Adatok betöltése 
 const savedData = JSON.parse(localStorage.getItem('budgetItems')) || [];
 
-// --- 1. KATEGÓRIA ELLENŐRZÉSE ---
+
 function checkCategory() {
     const categorySelect = document.getElementById('itemCategory');
     const otherDiv = document.getElementById('otherInputContainer');
     
-    // Ha az "Egyéb" van kiválasztva, megjelenítjük a beviteli mezőt
+    // Ha az egyéb
     if (categorySelect.value === 'other') {
         otherDiv.style.display = 'block';
     } else {
@@ -14,22 +14,20 @@ function checkCategory() {
     }
 }
 
-// --- 2. ŰRLAP MENTÉSE ---
+
 const form = document.getElementById('budgetForm');
 
 if (form) {
     form.addEventListener('submit', function(event) {
         event.preventDefault(); // Ne töltődjön újra az oldal
 
-        // Mezők behívása
         const amountInput = document.getElementById('itemAmount');
         const dateInput = document.getElementById('itemDate');
         const catSelect = document.getElementById('itemCategory');
         const customNameInput = document.getElementById('customName');
         const paymentSelect = document.getElementById('paymentMethod');
         const noteInput = document.getElementById('note');
-        
-        // Rádió gomb értékének megszerzése
+
         const radios = document.getElementsByName('itemType');
         let typeVal = 'expense';
         for (let i = 0; i < radios.length; i++) {
@@ -38,10 +36,8 @@ if (form) {
             }
         }
 
-        // --- VALIDÁLÁS (Hibaellenőrzés) ---
         let hibaVan = false;
 
-        // Összeg ellenőrzés
         if (amountInput.value === '' || amountInput.value <= 0) {
             document.getElementById('err-amount').style.display = 'block';
             amountInput.style.borderColor = '#e57373';
@@ -51,7 +47,7 @@ if (form) {
             amountInput.style.borderColor = '#ffe0e9';
         }
 
-        // Egyéb név ellenőrzés (ha az van kiválasztva)
+
         if (catSelect.value === 'other' && customNameInput.value.trim() === '') {
             customNameInput.style.borderColor = '#e57373';
             alert('Kérlek írd be az egyéb kategória nevét!'); // Egyszerű hibaüzenet
@@ -60,8 +56,7 @@ if (form) {
 
         if (hibaVan) return;
 
-        // --- NÉV ÉS KATEGÓRIA MEGHATÁROZÁSA ---
-        // Itt történik a varázslat a statisztikához!
+
         
         let vegsoKategoria = '';
         let vegsoNev = '';
@@ -88,14 +83,12 @@ if (form) {
             category: vegsoKategoria // Ez alapján rajzol a diagram
         };
 
-        // Mentés
         savedData.push(ujTetel);
         localStorage.setItem('budgetItems', JSON.stringify(savedData));
-        
-        // Visszajelzés
+
         document.getElementById('successMessage').style.display = 'block';
         form.reset();
-        checkCategory(); // Visszaállítjuk a mezőt
+        checkCategory(); 
         
         setTimeout(function() {
             document.getElementById('successMessage').style.display = 'none';
@@ -103,11 +96,9 @@ if (form) {
     });
 }
 
-// --- 3. LISTA GENERÁLÁSA (Lista oldal) ---
 const tableBody = document.querySelector('#expenseTable tbody');
 
 if (tableBody) {
-    // Dátum szerinti rendezés
     savedData.sort(function(a, b) {
         return new Date(b.date) - new Date(a.date);
     });
@@ -117,10 +108,10 @@ if (tableBody) {
         
         const sor = document.createElement('tr');
         
-        let szin = '#e57373'; // Pirosas (kiadás)
+        let szin = '#e57373'; 
         let elojel = '-';
         if (item.type === 'income') {
-            szin = '#66bb6a'; // Zöldes (bevétel)
+            szin = '#66bb6a'; 
             elojel = '+';
         }
 
@@ -134,7 +125,6 @@ if (tableBody) {
         tableBody.appendChild(sor);
     }
     
-    // Törlés gomb funkciója
     const clearBtn = document.getElementById('clearBtn');
     if(clearBtn) {
         clearBtn.onclick = function() {

@@ -1,16 +1,15 @@
-/* --- SZÍNPALETTA (Pasztell & Csajos) --- */
 :root {
-    --header-footer-bg: #b39ddb; /* Pasztell lila */
-    --background-bg: #fff5f7;    /* Halvány rózsaszínes háttér */
-    --container-bg: #ffffff;     /* Hófehér dobozok */
-    --button-bg: #ffab91;        /* Pasztell barack gomb */
-    --button-hover: #ff8a65;     /* Sötétebb barack hover */
-    --text-main: #5d4037;        /* Puhább barnás-szürke szöveg */
-    --border-color: #ffe0e9;     /* Halvány keret */
-    --table-hover: #fff0f5;      /* Táblázat sor hover szín */
+    --header-footer-bg: #b39ddb; 
+    --background-bg: #fff5f7;    
+    --container-bg: #ffffff;     
+    --button-bg: #ffab91;        
+    --button-hover: #ff8a65;     
+    --text-main: #5d4037;        
+    --border-color: #ffe0e9;     
+    --table-hover: #fff0f5;      
 }
 
-/* Alap beállítások */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,7 +26,7 @@ body {
     min-height: 100vh;
 }
 
-/* --- NAVIGÁCIÓ --- */
+
 header {
     background-color: var(--header-footer-bg);
     padding: 1rem;
@@ -69,9 +68,9 @@ nav {
     font-weight: bold;
 }
 
-/* --- FŐ TARTALOM --- */
+
 .container {
-    max-width: 700px; /* Kicsit szélesebb, hogy a táblázat elférjen */
+    max-width: 700px; 
     margin: 30px auto;
     padding: 0 20px;
     flex: 1;
@@ -85,23 +84,23 @@ h1 {
     font-size: 1.8rem;
 }
 
-/* --- DOBOZ STÍLUS (Ez közös mindenhol) --- */
+
 form, .chart-container, .faq-container, .table-box {
     background: var(--container-bg);
     padding: 2rem;
-    border-radius: 25px; /* Szép kerek sarkok */
-    border: 3px solid white; /* Vastag fehér keret belül */
-    box-shadow: 0 10px 30px rgba(179, 157, 219, 0.2); /* Lila árnyék */
+    border-radius: 25px;
+    border: 3px solid white; 
+    box-shadow: 0 10px 30px rgba(179, 157, 219, 0.2); 
 }
 
-/* --- FORM ELEMEK IGAZÍTÁSA --- */
+
 .form-group {
     margin-bottom: 20px;
-    width: 100%; /* Biztos ami biztos */
+    width: 100%; 
 }
 
 label {
-    display: block; /* Hogy a mező FÖLÖTT legyen */
+    display: block; 
     margin-bottom: 8px;
     font-weight: bold;
     color: var(--text-main);
@@ -129,25 +128,25 @@ input:focus, select:focus, textarea:focus {
     background-color: white;
 }
 
-/* RÁDIÓ GOMBOK (Kiadás/Bevétel) */
+
 .radio-group {
     display: flex;
     gap: 20px;
     align-items: center;
-    background-color: #fce4ec; /* Nagyon halvány háttér a gomboknak */
+    background-color: #fce4ec; 
     padding: 10px;
     border-radius: 15px;
 }
 
 .radio-group label {
-    margin-bottom: 0; /* Itt ne legyen alatta hely */
+    margin-bottom: 0; 
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-/* --- GOMBOK --- */
+
 button {
     width: 100%;
     padding: 15px;
@@ -168,16 +167,15 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* --- SZÉP TÁBLÁZAT --- */
-/* Fontos: A táblázatnál a lekerekítés trükkös */
+
 table {
     width: 100%;
-    border-collapse: separate; /* Ez kell a lekerekítéshez */
+    border-collapse: separate; 
     border-spacing: 0;
     margin-top: 10px;
 }
 
-/* Fejléc */
+
 th {
     background-color: var(--header-footer-bg);
     color: white;
@@ -186,7 +184,7 @@ th {
     font-weight: bold;
 }
 
-/* Fejléc lekerekítése */
+
 th:first-child {
     border-top-left-radius: 15px;
 }
@@ -194,24 +192,24 @@ th:last-child {
     border-top-right-radius: 15px;
 }
 
-/* Sorok */
+
 td {
     padding: 15px;
     border-bottom: 1px solid var(--border-color);
     color: #666;
 }
 
-/* Utolsó sornál ne legyen vonal */
+
 tr:last-child td {
     border-bottom: none;
 }
 
-/* Hover effekt a sorokon */
+
 tbody tr:hover {
     background-color: var(--table-hover);
 }
 
-/* --- HARMONIKA (SÚGÓ) --- */
+
 details {
     border: 2px solid var(--border-color);
     border-radius: 15px;
@@ -247,7 +245,7 @@ details p {
     color: #666;
 }
 
-/* --- LÁBLÉC --- */
+
 footer {
     background-color: var(--header-footer-bg);
     color: white;
@@ -256,7 +254,7 @@ footer {
     margin-top: auto;
 }
 
-/* --- MOBIL NÉZET --- */
+
 @media (max-width: 600px) {
     nav {
         flex-direction: column;
@@ -266,7 +264,7 @@ footer {
         justify-content: center;
     }
     
-    /* Mobilnál a táblázat görgethető legyen */
+ 
     .table-responsive {
         overflow-x: auto;
     }

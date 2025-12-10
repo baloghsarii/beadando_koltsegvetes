@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Költségvetésem</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Kalkulátor</a></li>
+                <li><a href="statisztika.html">Statisztika</a></li>
+                <li><a href="lista.html" class="active">Lista</a></li>
+                <li><a href="sugo.html">Súgó</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Korábbi költések</h1>
+        
+        <div class="table-box">
+            
+            <button id="clearBtn" style="margin-bottom: 20px; background-color: #e57373;">Összes törlése</button>
+
+            <div class="table-responsive">
+                <table id="expenseTable">
+                    <thead>
+                        <tr>
+                            <th>Dátum</th>
+                            <th>Név</th>
+                            <th>Összeg</th>
+                            <th>Fiz. mód</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        <p>Készítette: Balogh Sára Kata &copy; 2025</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Ez biztosítja, hogy a lista betöltődjön, ha a script.js nem futna le automatikusan
+        if(typeof loadList === 'function') {
+            loadList();
+        }
+    </script>
+</body>
+</html>

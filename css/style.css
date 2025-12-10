@@ -1,0 +1,273 @@
+/* --- SZÍNPALETTA (Pasztell & Csajos) --- */
+:root {
+    --header-footer-bg: #b39ddb; /* Pasztell lila */
+    --background-bg: #fff5f7;    /* Halvány rózsaszínes háttér */
+    --container-bg: #ffffff;     /* Hófehér dobozok */
+    --button-bg: #ffab91;        /* Pasztell barack gomb */
+    --button-hover: #ff8a65;     /* Sötétebb barack hover */
+    --text-main: #5d4037;        /* Puhább barnás-szürke szöveg */
+    --border-color: #ffe0e9;     /* Halvány keret */
+    --table-hover: #fff0f5;      /* Táblázat sor hover szín */
+}
+
+/* Alap beállítások */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--background-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- NAVIGÁCIÓ --- */
+header {
+    background-color: var(--header-footer-bg);
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+nav {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+}
+
+/* --- FŐ TARTALOM --- */
+.container {
+    max-width: 700px; /* Kicsit szélesebb, hogy a táblázat elférjen */
+    margin: 30px auto;
+    padding: 0 20px;
+    flex: 1;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: var(--header-footer-bg);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+/* --- DOBOZ STÍLUS (Ez közös mindenhol) --- */
+form, .chart-container, .faq-container, .table-box {
+    background: var(--container-bg);
+    padding: 2rem;
+    border-radius: 25px; /* Szép kerek sarkok */
+    border: 3px solid white; /* Vastag fehér keret belül */
+    box-shadow: 0 10px 30px rgba(179, 157, 219, 0.2); /* Lila árnyék */
+}
+
+/* --- FORM ELEMEK IGAZÍTÁSA --- */
+.form-group {
+    margin-bottom: 20px;
+    width: 100%; /* Biztos ami biztos */
+}
+
+label {
+    display: block; /* Hogy a mező FÖLÖTT legyen */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-main);
+    font-size: 1rem;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    background-color: #fffbfd;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    color: var(--text-main);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--header-footer-bg);
+    background-color: white;
+}
+
+/* RÁDIÓ GOMBOK (Kiadás/Bevétel) */
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background-color: #fce4ec; /* Nagyon halvány háttér a gomboknak */
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.radio-group label {
+    margin-bottom: 0; /* Itt ne legyen alatta hely */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- GOMBOK --- */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 10px rgba(255, 171, 145, 0.4);
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+/* --- SZÉP TÁBLÁZAT --- */
+/* Fontos: A táblázatnál a lekerekítés trükkös */
+table {
+    width: 100%;
+    border-collapse: separate; /* Ez kell a lekerekítéshez */
+    border-spacing: 0;
+    margin-top: 10px;
+}
+
+/* Fejléc */
+th {
+    background-color: var(--header-footer-bg);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Fejléc lekerekítése */
+th:first-child {
+    border-top-left-radius: 15px;
+}
+th:last-child {
+    border-top-right-radius: 15px;
+}
+
+/* Sorok */
+td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    color: #666;
+}
+
+/* Utolsó sornál ne legyen vonal */
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Hover effekt a sorokon */
+tbody tr:hover {
+    background-color: var(--table-hover);
+}
+
+/* --- HARMONIKA (SÚGÓ) --- */
+details {
+    border: 2px solid var(--border-color);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+summary {
+    cursor: pointer;
+    color: var(--header-footer-bg);
+    font-weight: bold;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+summary::after {
+    content: '+';
+    font-size: 1.2rem;
+    color: var(--button-bg);
+}
+
+details[open] summary::after {
+    content: '-';
+}
+
+details p {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-color);
+    color: #666;
+}
+
+/* --- LÁBLÉC --- */
+footer {
+    background-color: var(--header-footer-bg);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+/* --- MOBIL NÉZET --- */
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Mobilnál a táblázat görgethető legyen */
+    .table-responsive {
+        overflow-x: auto;
+    }
+}

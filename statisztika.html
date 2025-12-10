@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statisztika</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Költségvetésem</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Kalkulátor</a></li>
+                <li><a href="statisztika.html" class="active">Statisztika</a></li>
+                <li><a href="lista.html">Lista</a></li>
+                <li><a href="sugo.html">Súgó</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Mire költöttem eddig?</h1>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+        
+        <div id="percentageList" class="stats-summary"></div>
+    </main>
+
+    <footer>
+        <p>Készítette: Balogh Sára Kata &copy; 2025</p>
+    </footer>
+    
+    <script src="js/chart_config.js"></script>
+</body>
+</html>

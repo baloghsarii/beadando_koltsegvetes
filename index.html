@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Költségkövető - Kalkulátor</title>
+    <meta name="description" content="Havi költségkalkulátor bevételek és kiadások kezelésére.">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Költségvetésem</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Kalkulátor</a></li>
+                <li><a href="statisztika.html">Statisztika</a></li>
+                <li><a href="lista.html">Lista</a></li>
+                <li><a href="sugo.html">Súgó</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Új tétel rögzítése</h1>
+        
+        <form id="budgetForm" novalidate>
+            <div class="form-group">
+                <label>Milyen tétel ez?</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="itemType" value="expense" checked> 
+                        Kiadás
+                    </label>
+                    <label>
+                        <input type="radio" name="itemType" value="income"> 
+                        Bevétel
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="itemCategory">Kategória:</label>
+                <select id="itemCategory" onchange="checkCategory()">
+                    <option value="food">Élelmiszer</option>
+                    <option value="entertainment">Szórakozás</option>
+                    <option value="housing">Lakhatás</option>
+                    <option value="fuel">Üzemanyag</option>
+                    <option value="travel">Utazás</option>
+                    <option value="beauty">Szépségápolás</option>
+                    <option value="subscriptions">Előfizetések</option>
+                    <option value="other">Egyéb (Saját megnevezés)</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="otherInputContainer" style="display: none;">
+                <label for="customName">Saját kategória neve:</label>
+                <input type="text" id="customName" placeholder="pl. Ajándék, Kutyatáp...">
+            </div>
+
+            <div class="form-group">
+                <label for="itemAmount">Összeg (Ft):</label>
+                <input type="number" id="itemAmount" placeholder="0">
+                <span class="error-msg" id="err-amount">Kérlek adj meg egy érvényes összeget!</span>
+            </div>
+
+            <div class="form-group">
+                <label for="itemDate">Dátum:</label>
+                <input type="date" id="itemDate">
+            </div>
+
+            <div class="form-group">
+                <label for="paymentMethod">Fizetési mód:</label>
+                <select id="paymentMethod">
+                    <option value="card">Bankkártya</option>
+                    <option value="cash">Készpénz</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="note">Megjegyzés (opcionális):</label>
+                <textarea id="note" rows="3" placeholder="Ide írhatsz bármit..."></textarea>
+            </div>
+
+            <button type="submit" id="saveBtn">Hozzáadás</button>
+            
+            <p id="successMessage" style="display: none; color: #ff8a65; font-weight: bold; text-align: center; margin-top: 15px;">
+                Sikeres mentés!
+            </p>
+        </form>
+    </main>
+
+    <footer>
+        <p>Készítette: Balogh Sára Kata &copy; 2025</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
